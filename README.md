@@ -3,6 +3,8 @@
 ## Description
 Create a daily schedule for a team and visualize when the team will be there
 
+You can use it here: https://petersenandrew.github.io/gantt-schedule/
+
 ## Table of Contents
 - [Background](#background)
 - [Features](#features)
