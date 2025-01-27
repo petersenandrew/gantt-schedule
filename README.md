@@ -5,11 +5,27 @@ Create a daily schedule for a team and visualize when the team will be there
 
 ## Table of Contents
 - [Background](#background)
+- [Features](#features)
+- [Planned Features](#planned-features)
 - [Technologies used](#technologies-used)
 - [Installation](#installation)
 
+
 ## Background
 The goal of this site is to create a useful scheduling tool while gaining practice in UI/UX design.
+
+## Features
+- Schedule dynamically scales for large displays
+## Planned Features
+- Store current data in cookies
+- Import/Export
+- Clear schedule
+- Drag and drop users
+- Scale height by viewport height
+- 12/24 hr time
+- UI Overhaul
+- Editable users
+- Add shift inside chart
 
 ## Technologies Used
 - **Jekyll/Github Pages**: A static site generator that transforms plain text into static websites.
