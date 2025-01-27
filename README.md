@@ -18,10 +18,10 @@ The goal of this site is to create a useful scheduling tool while gaining practi
 
 ## Features
 - Schedule dynamically scales for large displays
-## Planned Features
-- Store current data in cookies
-- Import/Export
+- Store current data in localStorage
 - Clear schedule
+## Planned Features
+- Import/Export
 - Drag and drop users
 - Scale height by viewport height
 - 12/24 hr time
