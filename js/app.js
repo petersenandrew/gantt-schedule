@@ -27,11 +27,11 @@ document.getElementById('addTM').addEventListener('submit', function(event) {
 });
 
 
-document.getElementById('clearAllBtn').addEventListener('click', function(event) {
+document.getElementById('clearAllBtn').addEventListener('click', (event) => {
   clearAll();
 });
 
-document.getElementById('deleteBtn').addEventListener('click', function(event) {
+document.getElementById('deleteBtn').addEventListener('click', (event) => {
   const tmId = parseInt(selected.parentElement.getAttribute('tmId'),10);
   console.log(tmId);
   deleteTMfromGantt(selected);
@@ -39,7 +39,7 @@ document.getElementById('deleteBtn').addEventListener('click', function(event) {
   selected = null;
 });
 
-document.getElementById('ganttChart').addEventListener('click', function(event) {
+document.getElementById('ganttChart').addEventListener('click', (event) => {
   if(!event.target.classList.contains('shift-block')) {
     return;
   }
