@@ -17,7 +17,7 @@ export function addTMtoGantt(id, name, startTime, endTime) {
   const ganttChart = document.getElementById('ganttChart');
 
   const tm = document.createElement('div');
-  tm.classList.add('row', 'flex-nowrap', 'team-member');
+  tm.classList.add('flex-nowrap', 'team-member', 'mt-2', 'd-flex');
   tm.setAttribute('tmId', id);
 
   const nameBlock = document.createElement('div');
