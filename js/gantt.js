@@ -1,16 +1,6 @@
-import { validInput } from "./forms.js";
-
 let shiftBlockId = 0;
 
-export function addTM() {
-  if(!validInput()) {
-    return;
-  }
-
-  const name = document.getElementById('name').value;
-  const startTime = document.getElementById('startTime').value;
-  const endTime = document.getElementById('endTime').value;
-
+export function addTMtoGantt(name, startTime, endTime) {
   const startHour = parseInt(startTime.split(':')[0], 10);
   const startMinute = parseInt(startTime.split(':')[1], 10);
   const endHour = parseInt(endTime.split(':')[0], 10);
@@ -59,8 +49,4 @@ export function addTM() {
   ganttChart.appendChild(tm);
   tm.appendChild(nameBlock);
   tm.appendChild(shiftBlock);
-
-  // document.getElementById('name').value = '';
-  // document.getElementById('startTime').value = '';
-  // document.getElementById('endTime').value = '';
 }
