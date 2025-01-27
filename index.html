@@ -2,8 +2,56 @@
 layout: default
 title: Gantt Scheduler
 ---
+
 <section>
-  <div class="container">
-    <h1 class="display-3">Gantt Chart Scheduler</h1>
+  <div class="container mt-5 mx-1 flex-nowrap">
+    <h1 class="display-5">Gantt Chart Scheduler</h1>
+    <form class="row g-3 needs-validation" id="addUser" novalidate>
+      <div class="col-md-4">
+        <label for="name" class="form-label">Name</label>
+        <input type="text" class="form-control" id="name" value="Olivia" required>
+      </div>
+      <div class="col-md-2">
+        <label for="startTime" class="form-label">Start Time</label>
+        <input type="text" class="form-control" id="startTime" value="07:00" required>
+      </div>
+      <div class="col-md-2">
+        <label for="endTime" class="form-label">End Time</label>
+        <input type="text" class="form-control" id="endTime" value="15:30" required>
+        <div class="valid-feedback">
+          Looks good!
+        </div>
+      </div>
+      <div class="col-md-2 mt-md-auto mt-3">
+        <button class="btn btn-primary" type="submit">Add User</button>
+      </div>
+    </form>
+    <div class="invalid-feedback" id="nameErrorMessage">
+      Please enter a valid name in the format A-Z (e.g. Olivia).
+    </div>
+    <div class="invalid-feedback" id="timeErrorMessage">
+      Please enter a valid time in the format HH:MM (e.g. 09:30).
+    </div>
+    <div class="invalid-feedback" id="timeLengthErrorMessage">
+      End time must be later than the start time. 
+    </div>
   </div>
 </section>
+<section>
+  <div class="container mt-4 mx-2 mw-100">
+    <div class="row flex-nowrap">
+        <div class="text-center name-box p-0">
+          Name
+        </div>
+      {% for hour in (0..23) %}
+        <div class="text-center time-box p-0">
+        {{ hour }}:00
+        </div>
+      {% endfor %}
+    </div>
+    <div class="flex-nowrap" id="ganttChart"></div>
+  </div>
+</section>
+
+
+<script src="js/gantt.js"></script>

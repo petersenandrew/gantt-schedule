@@ -1,0 +1,34 @@
+.time-box {
+  display: block;
+  border: 1px solid #ddd;
+  height: 30px;
+  width: 3.5vw; /* 24 hours in a day, 84% of viewport */
+  min-width: 50px;
+}
+
+.name-box {
+  display: block;
+  border: 1px solid #ddd;
+  height: 30px;
+  width: 10vw;
+  min-width: 200px;
+}
+
+.name-block {
+  display: block;
+  border: 1px solid #ddd;
+  height: 30px;
+  width: 10vw;
+  text-align: center;
+  min-width: 200px;
+}
+
+.shift-block {
+  position: relative;
+  background-color: #4CAF50;
+  height: 30px;
+  color: white;
+  text-align: left;
+  line-height: 30px;
+  padding: 0 8px;
+}
