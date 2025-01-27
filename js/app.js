@@ -3,6 +3,10 @@ import { addTMtoDB, onStart, clearAll, removeTM, getTeam } from "./team.js";
 import { validInput } from "./forms.js";
 
 let selected = null;
+let isDragging = false;
+let moveTarget = null;
+let dragOffset = 0;
+let disableClick = false;
 
 onStart();
 
@@ -33,7 +37,6 @@ document.getElementById('clearAllBtn').addEventListener('click', (event) => {
 
 document.getElementById('deleteBtn').addEventListener('click', (event) => {
   const tmId = parseInt(selected.parentElement.getAttribute('tmId'),10);
-  console.log(tmId);
   deleteTMfromGantt(selected);
   removeTM(tmId);
   selected = null;
@@ -41,6 +44,10 @@ document.getElementById('deleteBtn').addEventListener('click', (event) => {
 
 document.getElementById('ganttChart').addEventListener('click', (event) => {
   if(!event.target.classList.contains('shift-block')) {
+    return;
+  }
+  if(disableClick) {
+    event.preventDefault();
     return;
   }
   if(event.target.classList.contains('selected')) {
@@ -53,3 +60,48 @@ document.getElementById('ganttChart').addEventListener('click', (event) => {
   event.target.classList.add('selected');
   selected = event.target;
 })
+
+document.getElementById('ganttChart').addEventListener('mousedown', (event) => {
+  if(event.target.classList.contains('shift-block')) {
+    isDragging = true;
+    moveTarget = event.target;
+    dragOffset = event.clientX - moveTarget.getBoundingClientRect().left;
+  }
+});
+
+let chartWidth = 0;
+let hourWidth = 0;
+
+
+document.addEventListener('mousemove', (event) => {
+  if(!isDragging) {
+    return;
+  }
+  if(window.innerWidth > 1416) {
+    //(Total Hours * width + Name width) / 100 * vw + margin
+    chartWidth = (24 * 3.5) / 100 * window.innerWidth;
+    hourWidth = 0.035 * window.innerWidth;
+  } else {
+    chartWidth = 24 * 50;
+    hourWidth = 50;
+  }
+  let newLeft = event.clientX - dragOffset - 220;
+  if(newLeft < 0) {
+    moveTarget.style.left = 0;
+  } else if(newLeft + moveTarget.getBoundingClientRect().width > chartWidth) {
+    moveTarget.style.left = chartWidth - moveTarget.getBoundingClientRect().width;
+  } else {
+    moveTarget.style.left = `${newLeft}px`;
+  }
+  disableClick = true;
+});
+
+document.addEventListener('mouseup', (event) => {
+  const lastX = event.clientX;
+  moveTarget = null;
+  isDragging = false
+  setTimeout(() => {
+    disableClick = false;
+  }, 1);
+
+});

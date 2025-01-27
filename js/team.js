@@ -24,7 +24,6 @@ export function addTMtoDB(name, startTime, endTime) {
 
 export function removeTM(id) {
   team = team.filter(tm => tm.id !== id);
-  console.log(team);
   localStorage.setItem('team', JSON.stringify(team));
 }
 

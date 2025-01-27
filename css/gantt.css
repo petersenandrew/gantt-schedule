@@ -39,7 +39,7 @@
 
 .selected {
   background-color: #3a873d;
-  box-shadow: 0 0 10px rgba(58, 135, 61, 0.6); /* Soft green glow */
-  transform: scale(1.01); /* Slightly enlarges the div */
-  transition: all 0.1s ease;
+  /* box-shadow: 0 0 10px rgba(58, 135, 61, 0.6); Soft green glow */
+  /* transform: scale(1.01);  Slightly enlarges the div */
+  /* transition: all 0.1s ease; */
 }
