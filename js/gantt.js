@@ -44,7 +44,7 @@ function validInput() {
 
 let shiftBlockId = 0;
 
-document.getElementById('addUser').addEventListener('submit', function(event) {
+document.getElementById('addTM').addEventListener('submit', function(event) {
   event.preventDefault();
 
   if(!validInput()) {
@@ -63,12 +63,12 @@ document.getElementById('addUser').addEventListener('submit', function(event) {
   const startPos = startHour + startMinute / 60;
   const endPos = endHour + endMinute / 60;
 
-  // Create a new shift block for the user on the Gantt chart
+  // Create a new shift block for the team member on the Gantt chart
   const ganttChart = document.getElementById('ganttChart');
 
-  const user = document.createElement('div');
-  user.classList.add('row');
-  user.classList.add('flex-nowrap');
+  const tm = document.createElement('div');
+  tm.classList.add('row');
+  tm.classList.add('flex-nowrap');
 
   const nameBlock = document.createElement('div');
   nameBlock.classList.add('name-block');
@@ -95,14 +95,14 @@ document.getElementById('addUser').addEventListener('submit', function(event) {
   shiftBlock.classList.add(`shift-block-${shiftBlockId}`);
   shiftBlockId++;
 
-  // Add the user's name to the shift block
+  // Add the team member's name to the shift block
   nameBlock.textContent = name;
   shiftBlock.textContent = name;
 
   // Append the shift block to the Gantt chart
-  ganttChart.appendChild(user);
-  user.appendChild(nameBlock);
-  user.appendChild(shiftBlock);
+  ganttChart.appendChild(tm);
+  tm.appendChild(nameBlock);
+  tm.appendChild(shiftBlock);
 
   // document.getElementById('name').value = '';
   // document.getElementById('startTime').value = '';
