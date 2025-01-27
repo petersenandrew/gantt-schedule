@@ -1,6 +1,10 @@
 let shiftBlockId = 0;
 
-export function addTMtoGantt(name, startTime, endTime) {
+export function deleteTMfromGantt(selected) {
+  selected.parentElement.remove();
+}
+
+export function addTMtoGantt(id, name, startTime, endTime) {
   const startHour = parseInt(startTime.split(':')[0], 10);
   const startMinute = parseInt(startTime.split(':')[1], 10);
   const endHour = parseInt(endTime.split(':')[0], 10);
@@ -13,15 +17,14 @@ export function addTMtoGantt(name, startTime, endTime) {
   const ganttChart = document.getElementById('ganttChart');
 
   const tm = document.createElement('div');
-  tm.classList.add('row');
-  tm.classList.add('flex-nowrap');
+  tm.classList.add('row', 'flex-nowrap', 'team-member');
+  tm.setAttribute('tmId', id);
 
   const nameBlock = document.createElement('div');
   nameBlock.classList.add('name-block');
 
-
   const shiftBlock = document.createElement('div');
-  shiftBlock.classList.add('shift-block');
+  shiftBlock.classList.add('shift-block', 'rounded-2');
   shiftBlock.style.left = `${startPos * 3.5}vw`; // Each hour block takes up ~4% of the chart
   shiftBlock.style.width = `${(endPos - startPos) * 3.5}vw`;
 
@@ -38,7 +41,7 @@ export function addTMtoGantt(name, startTime, endTime) {
   style.innerHTML = mediaQuery;
   document.head.appendChild(style);
 
-  shiftBlock.classList.add(`shift-block-${shiftBlockId}`);
+  shiftBlock.classList.add(`shift-block-${id}`);
   shiftBlockId++;
 
   // Add the team member's name to the shift block

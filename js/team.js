@@ -6,13 +6,14 @@ export function onStart() {
   const storedTeam = JSON.parse(localStorage.getItem('team'));
   team = storedTeam || [];
 
-  for(let tm of team) {
-    addTMtoGantt(tm.name, tm.startTime, tm.endTime);
-  }
+  team.forEach(tm => addTMtoGantt(tm.id, tm.name, tm.startTime, tm.endTime));
 }
 
 export function addTMtoDB(name, startTime, endTime) {
+  
+
   const newTM = {
+    id: Date.now(),
     name,
     startTime,
     endTime
@@ -21,8 +22,9 @@ export function addTMtoDB(name, startTime, endTime) {
   localStorage.setItem('team', JSON.stringify(team));
 }
 
-export function removeTM(name) {
-  team = team.filter(tm => tm.name !== name);
+export function removeTM(id) {
+  team = team.filter(tm => tm.id !== id);
+  console.log(team);
   localStorage.setItem('team', JSON.stringify(team));
 }
 
