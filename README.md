@@ -26,6 +26,7 @@ The goal of this site is to create a useful scheduling tool while gaining practi
 - UI Overhaul
 - Editable users
 - Add shift inside chart
+- Current time
 
 ## Technologies Used
 - **Jekyll/Github Pages**: A static site generator that transforms plain text into static websites.
