@@ -108,3 +108,7 @@ document.getElementById('addUser').addEventListener('submit', function(event) {
   // document.getElementById('startTime').value = '';
   // document.getElementById('endTime').value = '';
 });
+
+document.getElementById('clearAllBtn').addEventListener('click'), function() {
+  
+}
